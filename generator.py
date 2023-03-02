@@ -53,29 +53,29 @@ while not validInput:
 for i in range(numberOfQuestions):
     print("QUESTION", i + 1, ":")
     file.write("\n\\section{} %Q"+ str(i + 1) + "\n")
-    hasSubpart = input("    does Q" + str(i + 1) + " have any subparts? (y/n) ")
-    if hasSubpart == "y":
+    hasPart = input("    does Q" + str(i + 1) + " have any parts? (y/n) ")
+    if hasPart == "y":
         validInput = False
         while not validInput:
             try:
-                numberOfSubparts = int(input("    please enter the number of subparts for Q" + str(i + 1) + ": "))
+                numberOfParts = int(input("    please enter the number of parts for Q" + str(i + 1) + ": "))
             except ValueError:
-                print("    invalid number of subparts")
+                print("    invalid number of parts")
             else:
                 validInput = True
-        for j in range(numberOfSubparts):
+        for j in range(numberOfParts):
             file.write("\n\\subsection{} %Q"+ str(i + 1) + alph[j] + "\n\n")
-            hasSubsubpart = input("    does Q" + str(i + 1) + alph[j] + " have any subsubparts? (y/n) ")
-            if hasSubsubpart == "y":
+            hasSubpart = input("    does Q" + str(i + 1) + alph[j] + " have any subparts? (y/n) ")
+            if hasSubpart == "y":
                 validInput = False
                 while not validInput:
                     try:
-                        numberOfSubsubparts = int(input("    please enter the number of subparts for Q" + str(i + 1) + alph[j] + ": "))
+                        numberOfSubparts = int(input("    please enter the number of subparts for Q" + str(i + 1) + alph[j] + ": "))
                     except ValueError:
-                        print("    invalid number of subsubparts")
+                        print("    invalid number of subparts")
                     else:
                         validInput = True
-                for k in range(numberOfSubsubparts):
+                for k in range(numberOfSubparts):
                     file.write("\n\\subsubsection{} %Q"+ str(i + 1) + alph[j] + roman[k] + "\n\n")
     else:
         file.write("\n")
